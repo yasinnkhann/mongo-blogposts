@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-
-
 import './App.css';
 
 class App extends React.Component {
@@ -12,11 +10,7 @@ class App extends React.Component {
     posts: []
   };
 
-  componentDidMount = () => {
-    this.getBlogPost();
-  };
-
-
+ 
   getBlogPost = () => {
     axios.get('/api')
       .then((response) => {
@@ -28,6 +22,10 @@ class App extends React.Component {
         alert('Error retrieving data!!!');
       });
   }
+
+   componentDidMount = () => {
+    this.getBlogPost();
+  };
 
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -81,9 +79,6 @@ class App extends React.Component {
 
   render() {
 
-    console.log('State: ', this.state);
-
-    //JSX
     return(
       <div className="app">
         <h2>Welcome to the best app ever</h2>
